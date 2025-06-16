@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aravindhan T - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --text: #1f2937;
+            --bg: #ffffff;
+            --card-bg: #f3f4f6;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #2563eb11 0%, #1e40af11 100%);
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Education Section Styles */
+        .education {
+            background: var(--card-bg);
+        }
+
+        .education-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .education-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .education-content {
+            flex-grow: 1;
+        }
+
+        .education-content h3 {
+            color: var(--text);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-content h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .education-content .institution {
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .education-content .year {
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: #f3f4f6;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+        }
+
+        .education-content .description {
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Projects Section Enhancement */
+        .projects {
+            background: var(--card-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .project-info p {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .project-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Contact Section Enhancement */
+        .contact {
+            background: var(--bg);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Social Links Enhancement */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Design Enhancement */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .education-card {
+                text-align: center;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">Aravindhan</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Aravindhan T</h1>
+            <p>Full Stack Developer | Web Designer | Problem Solver</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>
+                I am a passionate Full Stack Developer with a strong foundation in web development
+                and a keen eye for creating beautiful, functional websites. With expertise in both
+                front-end and back-end technologies, I strive to build applications that are not
+                only visually appealing but also highly performant and user-friendly.
+            </p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <h2 class="section-title">Education & Qualifications</h2>
+        <div class="education-container">
+            <div class="education-card">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="education-content">
+                    <h3>Schooling</h3>
+                    <h4>10 th</h4>
+                    <p class="institution">Government hrs school</p>
+                    <p class="year">2020 - 2021</p>
+                    <p class="description"><br>
+                        • mark: 356
+                    </p>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="education-content">
+                    <h3>Diploma</h3>
+                    <h4>Computer Technology</h4>
+                    <p class="institution">Kongu Polytechnic College</p>
+                    <p class="year">2022 - 2024</p>
+                    <p class="description">
+                        • Completed with distinction<br>
+                        • Focused on IOT<br>
+                        • CGPA: 8.2/10
+                    </p>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="education-content">
+                    <h3>Engineering</h3>
+                    <h4>Information Technology</h4>
+                    <p class="institution">Kongu Engineering College</p>
+                    <p class="year">2024 - 2027</p>
+                    <p class="description">
+                        • yet studying<br>
+                        • stronger in web development<br>
+                        • CGPA: -
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>
+                    • HTML5, CSS3, JavaScript<br>
+                    • React.js, Node.js<br>
+                    • Responsive Design<br>
+                    • Frontend Development
+                </p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>Database Management</h3>
+                <p>
+                    • MySQL, MongoDB<br>
+                    • Database Design<br>
+                    • Data Modeling<br>
+                    • SQL Queries
+                </p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-microchip"></i>
+                <h3>IoT Development</h3>
+                <p>
+                    • Arduino Programming<br>
+                    • Sensor Integration<br>
+                    • IoT Architecture<br>
+                    • Embedded Systems
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                <div class="project-info">
+                    <h3>HOPS</h3>
+                    <p>A full-featured Hostel Management Systems</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                <div class="project-info">
+                    <h3>Hotel Management Systems</h3>
+                    <p>A responsive Hotel Management System</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                <div class="project-info">
+                    <h3>Defect Tracker</h3>
+                    <p>A full-featured Defect Tracker With Using Angular</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Live Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-content">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+            <div class="social-links">
+                <a href="https://github.com/Aravindhan67" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.education-card, .skill-card, .project-card').forEach((el) => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html> 
