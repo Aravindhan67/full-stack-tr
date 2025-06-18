@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .continer {
+            display: grid;
+            grid-template-columns: 100px 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px 100px;
+            gap: 20px;
+        }
+        .child {
+            border: 2px solid black;
+            background-color: red;
+            padding: 10px;
+        }
+        .header{
+            grid-column: 1/5;
+        }
+        .idbar{
+            grid-row: 2/4;
+        }
+        .content{
+            grid-column: 2/5;
+        }
+        .footer{
+            grid-column: 1/5;
+        }
+    </style>
+</head>
+<body>
+    <div class="continer">
+        <div class="child header">Header</div>
+        <div class="child idbar">Idbar</div>
+        <div class="child content">Content</div>
+        <div class="child footer">Footer</div>
+    </div>
+</body>
+</html>
