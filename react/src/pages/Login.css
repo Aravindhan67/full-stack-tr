@@ -1,0 +1,30 @@
+.container{
+    background-color: brown;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 300px;
+    padding:20px;
+    margin-top: 150px;
+    margin-left: 500px;
+    width:300px;
+    border-radius: 40px;
+}
+label{
+    display: inline;
+}
+form{
+    text-align: center;
+    width: 100%;
+    height:250px;
+}
+input{
+    padding:6px;
+    margin: 5px 0 10px 0;
+}
+button{
+    padding: 5px;
+    display:inline;
+    width:60px;
+    background-color:greenyellow;
+}
