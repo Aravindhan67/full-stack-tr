@@ -4,8 +4,8 @@ const Child = ({name,age}) => {
   return (
     <div>
       <p>Child</p>
-      <h4>Name:{name}</h4>
-      <h4>Age:{age}</h4>
+      <h4>Name:Kabesh</h4>
+      <h4>Age:19</h4>
     </div>
   );
 };

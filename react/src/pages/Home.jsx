@@ -1,11 +1,11 @@
 import React from 'react'
-
+import About from './About'
+import rocky from '../assets/rocky.png'
 const home = ({items,users}) => {
   return (
     <div>
-      <ol type="i">{items.map((fruit)=>(<li>{fruit}</li>))}</ol>
-      <h1>{users.username}</h1>
-      <h1>{users.password}</h1>
+      <About items={items} users={users}/>
+      <img src={rocky} alt="stone" />
     </div>
   )
 }
